@@ -6,13 +6,18 @@ Minimal YAML config loader with `${ENV_VAR}` interpolation. Built on PyYAML.
 
 ```python
 from config_loader import load_config
+
 cfg = load_config("config.yml")
-print(cfg["database"]["host"])
+print(cfg["database"]["url"])
 ```
 
 ## Interpolation
 
 Values like `${HOME}` are replaced from environment variables at load time.
+Undefined variables are left untouched. Works recursively in nested dicts and
+lists.
+
+Sample `config.yml` is included.
 
 ## Dependencies
 
